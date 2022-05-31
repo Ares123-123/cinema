@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org //DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.CinemaDao">
+    <select id="selectAllCinema" resultType="com.example.demo.bean.Cinema" >
+      select * from cinema
+    </select>
+
+    <!--查找指定id电影院-->
+    <select id="selectOneCinema" resultType="com.example.demo.bean.Cinema" >
+      select * from cinema
+      where cinema_id = #{cinema_id}
+    </select>
+
+    <select id="addOneCinema" resultType="com.example.demo.bean.Cinema">
+     insert into cinema(cinema_id,cinema_name,cinema_address,cinema_income)
+     values(#{cinema_id},#{cinema_name},#{cinema_address},#{cinema_income})
+    </select>
+    <select id="updateOneCinema" resultType="com.example.demo.bean.Cinema">
+      update cinema
+      set cinema_name=#{cinema_name},cinema_address=#{cinema_address}
+      where cinema_id = #{cinema_id}
+    </select>
+    <select id="deleteOneCinema" resultType="com.example.demo.bean.Cinema">
+      delete from cinema
+      where cinema_id = #{cinema_id}
+    </select>
+
+    <!--电影院收益-->
+    <select id="wx_cinemaIncome" resultType="com.example.demo.bean.Cinema">
+      update cinema
+      set cinema_income = #{cinema_income}
+      where cinema_id = #{cinema_id}
+    </select>
+</mapper>
+

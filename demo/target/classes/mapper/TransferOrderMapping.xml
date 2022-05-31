@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org //DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.OrderDao">
+    <select id="wx_addTransfer_order" resultType="com.example.demo.bean.Transfer_Order" >
+      insert into transfer_order(transfer_order_id,order_date,order_time,film_id,user_id,session_id,seat_number,original_price,current_price)
+      values(#{transfer_order_id},#{order_date},#{order_time},#{film_id},#{user_id},#{session_id},#{seat_number},#{original_price},#{current_price})
+  </select>
+  <!--查询所有转让订单-->
+    <select id="wx_selectAllTransfer_order" resultType="com.example.demo.bean.Transfer_Order" >
+      select * from transfer_order,film,session,cinema_hall,cinema,user
+      where transfer_order.film_id = film.film_id and transfer_order.session_id = session.session_id
+             and session.hall_id = cinema_hall.hall_id and cinema_hall.cinema_id = cinema.cinema_id
+             and transfer_order.user_id = user.user_id
+  </select>
+  <!--查询所有转让订单-->
+  <select id="wx_deleteOneTransfer_order" resultType="com.example.demo.bean.Transfer_Order" >
+      delete from transfer_order
+      where transfer_order_id = #{transfer_order_id}
+  </select>
+</mapper>

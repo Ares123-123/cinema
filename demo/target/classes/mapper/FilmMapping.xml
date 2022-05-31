@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org //DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.FilmDao">
+    <!--查找所有电影-->
+    <select id="selectAllFilm" resultType="com.example.demo.bean.Film" >
+      select * from film
+      order by film_score 
+    </select>
+    <!--添加一部电影-->
+    <select id="addFilm" resultType="com.example.demo.bean.Film">
+      insert into film(film_id,film_name,film_score,film_rank,
+                    film_style,director,actor,film_introduction,film_picture_url)
+      values(#{film_id},#{film_name},#{film_score},#{film_rank},
+             #{film_style},#{director},#{actor},#{film_introduction},#{film_picture_url})
+  </select>
+    <!--删除一部电影-->
+    <select id="deleteOneFilm" resultType="com.example.demo.bean.Film">
+      delete from film
+      where film_id = #{film_id}
+  </select>
+    <!--查找一部电影-->
+    <select id="selectOneFilm" resultType="com.example.demo.bean.Film">
+      select * from film
+      where film_id = #{film_id}
+  </select>
+    <!--更新一部电影-->
+    <select id="updateOneFilm" resultType="com.example.demo.bean.Film">
+      update film
+      set film_name=#{film_name},film_score=#{film_score},film_rank=#{film_rank},
+      film_style=#{film_style},director=#{director},actor=#{actor}
+      where film_id = #{film_id}
+  </select>
+</mapper>

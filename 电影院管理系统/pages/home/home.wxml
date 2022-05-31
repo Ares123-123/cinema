@@ -1,0 +1,60 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichTab">
+    影院</view>
+  <view class="swiper-tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichTab">
+    电影</view>
+</view>
+<!-- 这里根据设备屏幕的高度动态设置组件的高度 -->
+<swiper current="{{currentTab}}" duration="300" style="height:{{clientHeight?clientHeight-1.8+'px':'auto'}}"  bindchange="bindTouch">
+  <swiper-item>
+    <view class="cinema">
+      <!--
+      <view class="key_page">
+        <view class="key" bindtap="switchTab_map">地图</view>
+        <view class="key" bindtap="switchTab_rank">排行</view>
+      </view>
+      -->
+      <view class="cinema_page">
+        <view wx:for="{{cinema}}" wx:key="key">
+          <view class="cinema_form" data-cinema_id="{{item.cinema_id}}" bindtap="cinema_detail">
+            <view style="width:100%;text-overflow: ellipsis; white-space: nowrap;overflow: hidden">
+              {{item.cinema_name}}</view>
+            <view style="width:100%;text-overflow: ellipsis; white-space: nowrap;overflow: hidden">
+              <image style="width:12px;height:12px" src="/image/cinema_address.png"/>
+               {{item.cinema_address}}
+            </view>      
+          </view>
+         </view>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view class="film">
+      <view class="film_page">
+        <view wx:for="{{film}}" wx:key="key">
+          <view class="film_form" data-film_id="{{item.film_id}}" bindtap="film_detail" style="display:inline-flex;">
+              <view style="width:40%;">
+                <image src="data:image/png;base64,{{item.film_picture_url}}" style="width:100px;height:120px;"></image>
+              </view>
+              <view style="display:block;width:60%;">
+                <view style="font-size:18px;margin-bottom:0.5rem">{{item.film_name}}</view>
+                <view>
+                  导演 <view class="film_word">{{item.director}}</view>
+                </view>
+                <view>
+                  类型 <view class="film_word">{{item.film_style}}</view>
+                </view>
+                <view>
+                  评分 <view class="film_word">{{item.film_score}}</view>
+                </view>
+                <view>
+                  排名 <view class="film_word">{{item.film_rank}}</view>
+                </view>
+              </view>
+        </view>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>
+

@@ -1,0 +1,9 @@
+page{
+  background:rgb(247, 244, 231);
+}
+
+.seat{
+  width:25px;height:25px;background:white;
+  border:0.5px solid gainsboro;float:left;
+  margin:3px;border-radius:5px
+}

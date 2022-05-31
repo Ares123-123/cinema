@@ -1,0 +1,96 @@
+/*滑动组件*/
+.swiper-tab {
+  width: 100%;
+  height:1.8rem;
+  text-align: center;
+  border-bottom: 1px solid #b2b2b2;
+}
+
+.swiper-tab-item {
+  width: 50%;
+  display: inline-block;
+  font-size: 12pt;
+  color: #666;
+}
+
+.on {
+  color: rgb(51, 53, 44);
+  border-bottom: 5px solid rgb(228, 163, 89);
+}
+
+.cinema{
+  background:rgb(252, 248, 199);
+  width:100%;
+  height:27rem;
+  overflow:scroll;
+  display:inline-flex;
+  text-align:left;
+}
+.film{
+  display:inline-flex;
+  width:100%;
+  height:27rem;
+  overflow:scroll;
+}
+.key{
+  margin-left:30%;
+  margin-top:100%;
+  text-align:20px;
+  width:100%
+}
+.key_page{
+  width:15%
+}
+.cinema_page{
+     padding:1%;
+     float:left;
+     width:100%;
+     height:100%;
+}
+.cinema_form{
+  padding:3%;
+  width:100%;
+  height:flex;
+  border-bottom: rgb(207, 201, 201) 1px solid;
+  color:rgb(12, 11, 11);
+}
+.film_page{
+  margin:1%;
+  float:right;
+  width:100%;
+}
+.film_form{
+  padding:1rem;
+  width:98%;
+  height:flex;
+  border-bottom: rgb(207, 201, 201) 1px solid;
+}
+.img{
+  border:8px;
+  width:30px;
+  height:50px
+}
+.film_word{
+  display:inline-block;
+  color:sienna
+}
+.film_icon,.cinema_icon{
+  width:20px;
+  height:20px
+}
+.search{
+  background:rgb(218, 97, 97);width:60px;height:20px;border-radius:10px;text-align:center;
+}
+.search_after{
+  background:red;width:60px;height:20px;border-radius:10px
+}
+.request{
+  border:1px solid gray;
+  width:100%;
+  height:20px
+}
+.response{
+  border:1px solid gray;
+  width:200px;
+  height:20px
+}

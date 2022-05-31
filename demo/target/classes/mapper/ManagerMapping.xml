@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org //DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.ManagerDao">
+    <select id="LoginManager" resultType="com.example.demo.bean.Manager">
+   select * from manager
+   where manager_name=#{manager_name} and manager_password=#{manager_password}
+  </select>
+    <select id="SignUpManager" resultType="com.example.demo.bean.Manager">
+   insert into manager(manager_id,manager_name,user_password)
+        values(#{manager_id},#{manager_name},#{user_password})
+  </select>
+    <select id="selectAllManager" resultType="com.example.demo.bean.Manager">
+   select * from manager
+  </select>
+</mapper>

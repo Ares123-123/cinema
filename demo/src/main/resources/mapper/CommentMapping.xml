@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org //DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.CommentDao">
+    <select id="addOneComment" resultType="com.example.demo.bean.Comment" >
+      insert into comment(comment_id,comment_content,comment_date,comment_time,film_id,user_id,approval_state)
+      values(#{comment_id},#{comment_content},#{comment_date},#{comment_time},#{film_id},#{user_id},#{approval_state})
+    </select>
+    <select id="wx_showOneFilm_Comment" resultType="com.example.demo.bean.Comment" >
+      select * from comment
+      where #{film_id} = film_id
+    </select>
+    <select id="wx_showOneUser_Comment" resultType="com.example.demo.bean.Comment" >
+      select * from comment,film
+      where #{user_id} = user_id and comment.film_id = film.film_id
+    </select>
+    <!--查找所有评论-->
+    <select id="selectAllComment" resultType="com.example.demo.bean.Comment" >
+      select * from comment,film,user
+      where comment.film_id = film.film_id and comment.user_id = user.user_id
+    </select>
+    <!--按指定id删除评论信息-->
+    <select id="deleteOneComment" resultType="com.example.demo.bean.Comment" >
+      delete from comment
+      where comment_id = #{comment_id}
+    </select>
+    <!--按指定id改变评论审核状态为审核通过-->
+    <select id="updateOneComment_stateSuccess" resultType="com.example.demo.bean.Comment" >
+      update comment
+      set approval_state = '已通过'
+      where comment_id = #{comment_id}
+    </select>
+    <!--按指定id改变评论审核状态为审核不通过-->
+    <select id="updateOneComment_stateFail" resultType="com.example.demo.bean.Comment" >
+      update comment
+      set approval_state = '未通过'
+      where comment_id = #{comment_id}
+    </select>
+</mapper>

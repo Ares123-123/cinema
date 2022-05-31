@@ -1,0 +1,53 @@
+<view class="form" wx:key="key">
+  <view class="film_word">
+    <text style="font-size:20px">{{film_detail.film_name}}</text>
+  </view>
+  <view style="margin-left:1rem;display:inline-flex">
+    <view style="display:block">
+      <image src="data:image/png;base64,{{film_detail.film_picture_url}}" style="width:120px;height:150px;"></image>
+    </view>
+    <view style="display:block">
+      <view class="film_word">类型<text>{{film_detail.film_style}}</text></view>
+      <view class="film_word">导演<text>{{film_detail.director}}</text></view>
+      <view class="film_word">评分<text>{{film_detail.film_score}}</text></view>
+      <view class="film_word">排名<text>{{film_detail.film_rank}}</text></view>
+      <view bindtap="buy_ticket" style="margin-left:50%;width:4.5rem;padding:3px;height:flex;border:5px solid skyblue;border-radius:5px">我要去买票</view>
+    </view>
+  </view>
+</view>
+<view class="swiper-tab">
+  <view class="swiper-tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichTab">
+    简介</view>
+  <view class="swiper-tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichTab">
+    影评</view>
+</view>
+
+<!-- 这里根据设备屏幕的高度动态设置组件的高度 -->
+<swiper current="{{currentTab}}" duration="300" style="height:270px"  bindchange="bindTouch">
+  <swiper-item style="background:white">
+    <!--简介-->
+    <view>{{film_detail.film_introduction}}</view>
+  </swiper-item>
+  <swiper-item style="background:white;width:100%">
+    <!--影评-->
+  <view style="background:white;width:100%;height:240px;overflow:scroll;">
+   <view wx:for="{{showComment}}">
+   <view wx:if="{{item.approval_state=='已通过'}}" style="display:block;width:100%;height:flex;border:1px solid whitesmoke">
+    <view style="margin-left:2%;">{{item.comment_content}}</view>
+    <view style="margin-left:2%;width:flex;">
+    <text style="color:rgb(129, 125, 122);font-size:10px;">{{item.comment_date}}</text>
+    <text style="color:rgb(129, 125, 122);font-size:10px;">{{item.comment_time}}</text>
+    </view>
+  </view>
+   </view>
+ </view>
+   <!--写影评-->
+   <view style="position:absloute;bottom:0;;width:100%;height:20px;padding:5px;background:whitesmoke;display:inline-flex">
+   <input style="float:left;width:75%;height:flex;background:white" value="{{comment_content}}" bindinput="get_comment" placeholder="开始写影评">
+   </input>
+   <span bindtap="save" style="float:left;margin-left:15px;width:10%;padding:3px;height:flex;color:rgb(206, 204, 97);border-radius:5px">评论</span>
+   </view>
+  </swiper-item>
+</swiper>
+
+

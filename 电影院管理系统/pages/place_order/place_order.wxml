@@ -1,0 +1,39 @@
+<view style="background:white;display:block;margin:0 3px 5px 3px;font-size:12px">
+  <view style="margin-left:5px;font-size:20px">
+    <text>{{session.film_name}}</text>
+  </view>
+  <view style="margin:5px">
+    <text>{{session.session_date}}</text>
+    <text style="padding:5px"></text>
+    <text>{{session.session_time}}</text>
+  </view>
+  <view style="padding:5px;">
+    <text>{{session.cinema_name}}</text>
+  </view>
+  <view style="padding:5px">
+    <text>{{session.hall_number}}</text>号厅
+    <text>{{newOrder.currentSeat}}</text>号座位
+  </view>
+  <view style="padding:5px">
+    <text>{{session.cinema_address}}</text>
+  </view>
+</view>
+
+<view style="margin-top:2rem;margin-right:3px;height:200px;background:whitesmoke;padding:2px;content:white">
+  <view>购票须知</view>
+  <view style="font-size:12px">
+    <view style="margin:0.5rem;">1.购票后提供退票或转让服务,退票和转让请按照要求</view>
+    <view style="margin:0.5rem;">2.退票会收取一定的手续费，转让可以按自己需求定价</view>
+    <view style="margin:0.5rem;">3.如果系统出现购票失败，请咨询客服</view>
+    <view style="margin:0.5rem;">4.一次只能购买一张电影票</view>
+  </view>
+</view>
+
+<view style="display:inline-flex;width:100%;background:white;margin:5px">
+  <view style="float:left;height:flex;padding:5px;">
+    总价 <text>￥{{session.session_price}}</text>
+  </view>
+  <view bindtap="pay" style="float:left;width:flex;height:flex;padding:5px;background:pink;border-radius:5px;margin-left:50%">
+    支付
+  </view>
+</view>

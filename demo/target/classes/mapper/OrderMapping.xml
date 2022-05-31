@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org //DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.OrderDao">
+    <select id="addNewOrder" resultType="com.example.demo.bean.Order" >
+      insert into film_order(order_id,order_date,order_time,user_id,film_id,session_id,seat_number,total_price,state)
+      values(#{order_id},#{order_date},#{order_time},#{user_id},#{film_id},#{session_id},#{seat_number},#{total_price},"待取票")
+  </select>
+    <select id="selectOneUser_order" resultType="com.example.demo.bean.Order" >
+      select * from film_order,film,session,cinema_hall,cinema
+      where  #{user_id} = film_order.user_id and film_order.film_id = film.film_id and film_order.session_id = session.session_id
+             and session.hall_id = cinema_hall.hall_id and cinema_hall.cinema_id = cinema.cinema_id
+  </select>
+    <!--删除订单-->
+    <select id="wx_quitUserOrder" resultType="com.example.demo.bean.Order" >
+      delete from film_order
+      where order_id = #{order_id}
+  </select>
+    <!--修改订单状态-->
+    <select id="wx_Update_oneOrderState" resultType="com.example.demo.bean.Order" >
+      update film_order
+      set state =#{state}
+      where order_id = #{order_id}
+  </select>
+    <!--查询和该用户相同场次的订单信息-->
+    <select id="wx_select_sameSession_order" resultType="com.example.demo.bean.Order" >
+      select *
+      from film_order,user,film,cinema,session,cinema_hall
+      where film_order.session_id in (select session_id from film_order where user_id = #{user_id})
+      and film_order.user_id = user.user_id and film_order.film_id =  film.film_id and film_order.session_id = session.session_id
+      and session.hall_id = cinema_hall.hall_id and cinema_hall.cinema_id = cinema.cinema_id
+  </select>
+    <select id="selectAllFilm_Order" resultType="com.example.demo.bean.Order" >
+      select * from film_order,film,user,session,cinema_hall,cinema
+      where film_order.film_id = film.film_id and film_order.user_id = user.user_id and film_order.session_id = session.session_id
+             and session.hall_id = cinema_hall.hall_id and cinema_hall.cinema_id = cinema.cinema_id
+  </select>
+  <!--查找是否售出该座位-->
+  <select id="wx_determine_seat_isSell" resultType="com.example.demo.bean.Order" >
+      select * from film_order,session
+      where #{session_id} = film_order.session_id and #{seat_number} = film_order.seat_number
+  </select>
+
+  <!--判断场次是否有你的座位-->
+  <select id="wx_determine_isYourSeat" resultType="com.example.demo.bean.Order" >
+      select * from film_order,session,user
+      where #{session_id} = film_order.session_id and #{seat_number} = film_order.seat_number and #{user_id} = user.user_id
+  </select>
+</mapper>

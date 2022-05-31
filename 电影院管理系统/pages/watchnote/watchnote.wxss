@@ -1,0 +1,13 @@
+/* pages/watchboard/watchboard.wxss */
+.container{
+  margin:10px;
+  padding:0;
+ }
+
+canvas {
+  left:30px;
+  margin:10px;
+  width:380px;
+  height:300px;
+  transform: scale(1)
+}

@@ -1,0 +1,7 @@
+.form{
+  display:inline
+}
+input{
+  background: white;
+  border-bottom:1px solid gainsboro
+}

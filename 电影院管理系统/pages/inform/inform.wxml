@@ -1,0 +1,37 @@
+待转让电影票
+<view style="width:flex;height:16rem;overflow:scroll;background:whitesmoke;padding:5px">
+  <view wx:for="{{transfer_order}}" style="width:flex;height:flex;padding:5px;margin:5px;border-radius:2px;background:white">
+    <view style="width:flex;height:flex;background:white;padding:5px">
+    <view style="display:inline-flex;width:100%">
+    <view style="width:60%;float:left;font-size:18px">{{item.film_name}}</view>
+    转让人：<text>{{item.user_name}}</text>
+  </view>
+    <view style="margin:5px">  
+    <text style="margin-right:5px">预定时间：</text>
+    <text>{{item.order_date}}</text>
+    <text style="padding:5px">{{item.order_time}}</text>
+  </view>
+  <view style="padding:5px;">
+    <text>{{item.cinema_name}}</text>
+  </view>
+  <view style="padding-left:5px">
+    <text>{{item.hall_number}}</text>号厅
+    <text>{{item.seat_number}}</text>号座位
+  </view>
+  <view style="padding-left:5px">
+    原价：<text>{{item.original_price}}</text>
+    现价：<text>{{item.current_price}}</text>
+    <view bindtap="place_order" data-ticket="{{item}}" style="margin-left:10rem;width:5rem;height:15px;padding:2px;background:pink;border-radius:5px;text-align:center">购买转让票</view>
+  </view>
+</view>
+  </view>
+</view>
+
+推荐影友
+<view style="width:flex;height:8rem;overflow:scroll;background:whitesmoke;padding:5px">
+  <view wx:if="{{item.user_id!=user_id}}" wx:for="{{sameSessionOrder}}" style="width:flex;height:flex;padding:5px;margin:5px;border-radius:2px;background:white">
+    <view style="color:blue">{{item.user_name}}</view>
+    因为你们都要去<text style="color:brown">{{item.cinema_name}}</text>看
+    <text style="color:brown">{{item.film_name}}</text>
+  </view>
+</view>

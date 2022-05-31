@@ -1,0 +1,33 @@
+/*滑动组件*/
+.swiper-tab {
+  width: 100%;
+  height:1.8rem;
+  text-align: center;
+  border-bottom: 1px solid #b2b2b2;
+}
+
+.swiper-tab-item {
+  width: 50%;
+  display: inline-block;
+  font-size: 12pt;
+  color: #666;
+}
+
+.on {
+  color: rgb(170, 177, 70);
+}
+.form{
+  display:block;
+  height:flex;
+}
+.film_word{
+  display:block;
+  margin:0.5rem;
+  color:rgb(20, 10, 5)
+}
+text{
+  color:rgb(141, 53, 8);
+  font-weight:400;
+  font-size:15px;
+  margin:10px;
+}

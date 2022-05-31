@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org //DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.SessionDao">
+    <select id="selectAllSession" resultType="com.example.demo.bean.Session" >
+      select * from session,cinema_hall,cinema,film
+      where session.hall_id=cinema_hall.hall_id and cinema_hall.cinema_id=cinema.cinema_id
+      and session.film_id = film.film_id
+    </select>
+    <select id="updateOneSession" resultType="com.example.demo.bean.Session">
+      update session
+      set session_date=#{session_date},session_time=#{session_time},session_price=#{session_price},
+           sold_number=#{sold_number}
+      where session_id = #{session_id}
+  </select>
+    <select id="selectOneCinema_session" resultType="com.example.demo.bean.Session">
+      select * from session,cinema,cinema_hall,film
+      where cinema.cinema_id = #{cinema_id} and cinema.cinema_id = cinema_hall.cinema_id and cinema_hall.hall_id = session.hall_id
+             and session.film_id = film.film_id
+  </select>
+    <select id="addOneSession" resultType="com.example.demo.bean.Session">
+      insert into session(session_id,session_date,session_time,session_price,sold_number,hall_id,film_id)
+      values(#{session_id},#{session_date},#{session_time},#{session_price},#{sold_number},#{hall_id},#{film_id})
+  </select>
+    <!--小程序端按照指定电影查找上映该电影的电影院-->
+    <select id="wx_selectOneFilm_Cinema" resultType="com.example.demo.bean.Session">
+      select * from session,cinema,cinema_hall
+      where #{film_id} = session.film_id and session.hall_id = cinema_hall.hall_id and cinema_hall.cinema_id = cinema.cinema_id
+    </select>
+    <select id="selectOneSession_Hall" resultType="com.example.demo.bean.Session">
+      select * from session,cinema_hall,cinema,film
+      where #{session_id} = session.session_id and session.film_id = film.film_id
+      and session.hall_id = cinema_hall.hall_id and cinema_hall.cinema_id = cinema.cinema_id
+    </select>
+    <!--按照指定场次id查找场次所有信息-->
+  <select id="wx_selectOneSession" resultType="com.example.demo.bean.Session">
+      select * from session,cinema_hall,cinema,film
+      where #{session_id} = session.session_id and session.film_id = film.film_id
+      and session.hall_id = cinema_hall.hall_id and cinema_hall.cinema_id = cinema.cinema_id
+    </select>
+</mapper>

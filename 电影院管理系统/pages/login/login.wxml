@@ -1,0 +1,15 @@
+<view>
+  <image style="height:12rem;" src="/image/login.png"></image>
+</view>
+<view>
+<view class="form">
+  用户名<input value="{{username}}" bindinput="get_username"/>
+</view>
+<view class="form">
+  密码<input type="password" value="{{password}}" bindinput="get_password"/>
+</view>
+</view>
+
+<view bindtap="login" style="background:wheat;width:80%;margin-left:8%;margin-top:2rem;height:flex;padding:0.5rem;text-align:center;border-radius:0.5rem">登录</view>
+<view bindtap="signup" style="background:wheat;width:80%;margin-left:8%;margin-top:0.5rem;height:flex;padding:0.5rem;text-align:center;border-radius:0.5rem">注册</view>
+

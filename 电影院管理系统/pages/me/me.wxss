@@ -1,0 +1,48 @@
+/* pages/login/login.wxss */
+.container{
+  color: burlywood;
+  margin:3rem;
+  padding:0;
+  display:inline;
+}
+.profile{
+  width:flex;
+  height:7rem;
+  background:rgb(255 250 205);
+  border-bottom-right-radius:50px;
+  border-bottom-left-radius:50px;
+}
+.image{
+  width:70px;
+  height:70px;
+  border-radius:50px;
+}
+.vip{
+  display:inline-flex;
+  color:black;
+  margin-left:30px;
+  font-size:20px;
+  font-weight:1000;
+  color:chocolate;
+}
+.little_title{
+  float:left;
+  color:black;
+  margin-left:10px;
+  margin-top:10px;
+  margin-bottom:5px;
+  border-bottom:1px solid gainsboro;
+  width:90%;
+  font-size:12px;
+}
+
+.icon{
+   width:20px;
+   height:20px;
+}
+
+.button{
+  margin:10px;
+}
+
+

@@ -1,0 +1,56 @@
+/* pages/order/order.wxss */
+.order{
+  margin:10px;
+  display:inline-block;
+  border:rgb(17, 16, 16) 1px soild;
+  width:300px;
+  height:100%;
+  background:rgb(247, 199, 207);
+}
+text{
+  width:100%
+}
+.button{
+  text-align:center;
+  position:relative;
+  left:240px;
+  width:40px;
+  background:rgb(131, 146, 104);
+  border-radius:10px;
+}
+
+/*mask*/
+.drawer_screen { 
+  width: 100%; 
+  height: 100%; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  z-index: 1000; 
+  background: #000; 
+  opacity: 0.5; 
+  overflow: hidden; 
+ } 
+   
+ /*content*/
+ .drawer_box { 
+  width: 80%; 
+  overflow: hidden; 
+  position: fixed; 
+  top: 50%; 
+  left: 0; 
+  z-index: 1001; 
+  background: #FAFAFA; 
+  margin: -150px 50rpx 0 50rpx; 
+  border-radius: 3px; 
+ } 
+   
+ .drawer_title{ 
+  padding:15px; 
+  font: 20px "microsoft yahei"; 
+  text-align: center; 
+ } 
+ .drawer_content { 
+  height: 100px; 
+  overflow-y: scroll; /*超出父盒子高度可滚动*/
+ } 

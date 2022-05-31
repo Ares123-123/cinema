@@ -1,0 +1,6 @@
+<view wx:if="{{cinema.length!=0}}" style="width:flex;height:flex;padding:5px;background:whitesmoke">
+  <view wx:for="{{cinema}}" data-cinema_id="{{item.cinema_id}}" bindtap="click_cinema" style="width:flex;padding:5px;background:white;margin-top:5px;">
+{{item.cinema_name}}
+</view>
+</view>
+<view wx:if="{{cinema.length==0}}">无相关影院</view>

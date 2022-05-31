@@ -1,0 +1,47 @@
+  <view class="profile">
+  <view style="display:block;line-height:15px;margin-left:40%">
+    <!--<image class="image" src="{{userinfo.avatarUrl}}"></image>-->
+    <image class="image" src="/image/user.png"></image>
+  </view>
+  <view style="display:block;line-height:15px;margin-left:30%;padding:10px"> 
+   <text>昵称</text>
+   <!--<text style="margin:10px;font-size:15px;font-weight:1000;">{{userinfo.nickName}}</text>-->
+   <text style="margin:10px;font-size:15px;font-weight:1000;">{{user.user_name}}</text>
+  </view>
+  </view>
+   
+<view class="container"> 
+  <view bindtap="change_password" class="little_title">
+  <image class="icon" src="/image/data.png"></image>
+  <text style="line-height:15px;margin-left:10px">修改信息</text>
+ </view>
+ <view class="little_title">
+  <image class="icon" src="/image/label.png"></image>
+  <text style="line-height:15px;margin-left:10px">余额</text>
+  <text style="line-height:15px;margin-left:10px">{{user.user_money}}元</text>
+ </view>
+ <view class="little_title">
+  <view style="display:inline" bindtap="recharge">
+    <image style="width:25px;height:25px" src="/image/add_money.png"></image>
+    充值
+  </view>
+ </view>
+ <view  class="little_title" bindtap="comment_detail" data-user_id="{{user.user_id}}">
+  <image class="icon" src="/image/comment.png"></image>
+  <text style="line-height:15px;margin-left:10px">我的评论</text>
+  </view>
+ <view class="little_title" bindtap="click_order" data-user_id="{{user.user_id}}">
+  <image class="icon" src="/image/order.png"></image>
+  <text style="line-height:15px;margin-left:10px">我的订单</text>
+  </view>
+ <view bindtap="WatchBoard" class="little_title">
+  <image class="icon" src="/image/board.png"></image>
+  <text style="line-height:15px;margin-left:10px">观影记录</text>
+ </view>
+</view>
+<view class="button">
+  <button bindtap="quit_login">退出登录</button>
+  <button>设置</button>
+</view>
+
+

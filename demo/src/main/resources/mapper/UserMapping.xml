@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org //DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserDao">
+  <select id="queryUserInformation" resultType="com.example.demo.bean.User" >
+      select * from user
+  </select>
+    <select id="payUser_money" resultType="com.example.demo.bean.User" >
+        update user
+        set user_money = #{user_money}
+        where user_id = #{user_id}
+    </select>
+    <select id="selectOne_User" resultType="com.example.demo.bean.User" >
+        select * from user
+        where user_id = #{user_id}
+    </select>
+
+    <!--用户注册-->
+    <select id="userSignUp" resultType="com.example.demo.bean.User" >
+        insert into user(user_id,user_name,user_password,user_money)
+        values(#{user_id},#{user_name},#{user_password},#{user_money})
+    </select>
+    <!--用户登录-->
+    <select id="userLogin" resultType="com.example.demo.bean.User" >
+        select * from user
+        where user_name = #{user_name} and user_password = #{user_password}
+    </select>
+    <!--用户修改密码-->
+    <select id="wx_change_password" resultType="com.example.demo.bean.User" >
+        update user
+        set user_password = #{user_password}
+        where user_id = #{user_id}
+    </select>
+    <!--用户退票退款-->
+    <select id="wx_refundUser" resultType="com.example.demo.bean.User" >
+        update user
+        set user_money = user_money + #{user_money}
+        where user_id = #{user_id}
+    </select>
+</mapper>

@@ -1,0 +1,25 @@
+spring:
+  #配置json时间区
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/cinema?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: jgx990826
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+    # 最大文件大小
+    max-file-size: 100MB
+    # 最大请求大小
+    max-request-size: 100MB
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.demo.dao
+
+server:
+  port: 9000
+
+

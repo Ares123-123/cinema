@@ -1,0 +1,14 @@
+page{
+  background:rgb(247, 244, 231);
+}
+.seat_unactive{
+  width:25px;height:25px;background:white;
+  border:0.5px solid gainsboro;float:left;
+  margin:3px;border-radius:5px
+}
+
+.seat_active{
+  width:25px;height:25px;background:#bed742;
+  border:0.5px solid gainsboro;float:left;
+  margin:3px;border-radius:5px
+}

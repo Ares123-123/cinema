@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org //DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.HallDao">
+    <select id="selectAllHall" resultType="com.example.demo.bean.Hall" >
+      select * from cinema,cinema_hall
+      where cinema.cinema_id=cinema_hall.cinema_id
+  </select>
+  <select id="selectOneCinema_hall" resultType="com.example.demo.bean.Hall">
+      select * from cinema,cinema_hall
+      where #{cinema_id}=cinema.cinema_id and cinema.cinema_id=cinema_hall.cinema_id
+  </select>
+  <select id="addCinema_hall" resultType="com.example.demo.bean.Hall">
+     insert into cinema_hall(hall_id,hall_number,hall_seat_count,cinema_id)
+     values(#{hall_id},#{hall_number},#{hall_seat_count},#{cinema_id})
+  </select>
+    <select id="updateOneHall" resultType="com.example.demo.bean.Hall">
+      update cinema_hall
+      set hall_number=#{hall_number},hall_seat_count=#{hall_seat_count}
+      where hall_id = #{hall_id}
+  </select>
+    <!--查找指定影厅id的排片详情-->
+    <select id="selectOneHall" resultType="com.example.demo.bean.Hall">
+      select * from cinema_hall,session,film
+      where cinema_hall.hall_id = #{hall_id} and cinema_hall.hall_id = session.hall_id
+             and session.film_id = film.film_id
+  </select>
+</mapper>

@@ -1,0 +1,61 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/me/me",
+    "pages/login/login",
+    "pages/signup/signup",
+    "pages/balance/balance",
+    "pages/inform/inform",
+    "pages/recharge/recharge",
+    "pages/change_password/change_password",
+    
+    "pages/film_cinema/film_cinema",
+    "pages/cinema_detail/cinema_detail",
+    "pages/film_detail/film_detail",
+    "pages/choose_seat/choose_seat",  
+    "pages/place_order/place_order",
+    "pages/order_detail/order_detail",
+    "pages/comment_detail/comment_detail",
+
+    "pages/watchnote/watchnote",
+    "pages/watchboard/watchboard",
+    "pages/order/order",
+    "pages/map/map",
+    "pages/cinema_rank/cinema_rank"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+    }
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "pageOrientation":"portrait",
+    "navigationBarTitleText": "电影院管理系统",
+    "navigationBarTextStyle":"black",
+    "sitemapLocation": "sitemap.json"
+  },
+  "tabBar":{
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "购票",
+      "iconPath": "/image/home_1.png",
+      "selectedIconPath": "/image/home_2.png"
+    },
+    {
+      "pagePath": "pages/inform/inform",
+      "text": "通知管理",
+      "iconPath": "/image/cinema.png",
+      "selectedIconPath": "/image/cinema.png"
+    },
+    {
+      "pagePath": "pages/me/me",
+      "text": "个人中心",
+      "iconPath": "/image/me_1.png",
+      "selectedIconPath": "/image/me_2.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

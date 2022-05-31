@@ -1,0 +1,11 @@
+<view style="width:flex;height:flex;background:whitesmoke;padding:5px">
+ <view wx:for="{{comment}}" style="width:flex;padding:2px;margin:5px;border-radius:2px;background:white">
+  <view style="font-size:12px;">{{item.film_name}}</view>
+  <text style="color:black;font-size:13px;margin:2rem">{{item.comment_content}}</text>
+  <view wx:if="{{item.approval_state=='未通过'}}" style="color:red;font-size:12px;margin-left:13rem">审核{{item.approval_state}}</view>
+  <view wx:if="{{item.approval_state=='已通过'}}" style="font-size:12px;margin-left:13rem">审核{{item.approval_state}}</view>
+  <view wx:if="{{item.approval_state=='未审核'}}" style="color:blue;font-size:12px;margin-left:13rem">审核{{item.approval_state}}</view>
+ </view>
+</view>
+
+

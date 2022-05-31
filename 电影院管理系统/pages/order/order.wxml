@@ -1,0 +1,44 @@
+<view style="width:flex;height:flex;background:whitesmoke;padding:5px">
+  <view wx:for="{{order}}" style="width:flex;padding:5px;margin:5px;border-radius:2px;background:white">
+    <view style="display:inline-flex;width:100%">
+    <view style="width:80%;float:left;font-size:18px">{{item.film_name}}</view>
+    <view style="width:15%;float:left">{{item.state}}</view>
+    <view bindtap="order_detail" data-session_id="{{item.session_id}}" style="width:5%;float:left">
+      <image style="width:20px;height:20px" src="/image/arrow-right-line.png"></image>
+    </view>
+  </view>
+    <view style="margin:5px">  
+    <text style="margin-right:5px">预定时间：</text>
+    <text>{{item.order_date}}</text>
+    <text style="padding:5px">{{item.order_time}}</text>
+  </view>
+  <view style="padding:5px;">
+    <text>{{item.cinema_name}}</text>
+  </view>
+  <view style="padding-left:5px">
+    <text>{{item.hall_number}}</text>号厅
+    <text>{{item.seat_number}}</text>号座位
+  </view>
+  <view style="display:inline-flex;width:100%">
+    <view bindtap="get_ticket" style="margin-left:5%;width:20%;float:left;font-size:15px">取票</view>
+    <view wx:if="{{item.state=='待取票'}}" bindtap="powerDrawer" data-statu="open" style="margin-left:5%;width:20%;float:left;font-size:15px">转让</view>
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+   
+ <!--drawer content-->
+ <view class="drawer_title">转让电影票</view>
+ <view class="drawer_content">
+   <label>自定义价格</label>
+   ￥<input style="background:rgb(241, 245, 247)" bindinput="get_transfer_price"></input>
+ </view>
+ <view style="background:rgb(227, 246, 255);padding-left:45%;padding-top:0.5rem;padding-bottom:0.5rem;" bindtap="transfer_order" data-order="{{item}}" data-statu="close">确定</view>
+</view>
+    <view wx:if="{{item.state=='待取票'}}" bindtap="quit_order"  data-order="{{item}}"style="margin-left:10%;width:20%;float:left;font-size:15px">退票</view>
+    <view style="margin-left:10%;width:30%;float:left;font-size:12px">合计￥{{item.total_price}}</view>
+  </view>
+  <view wx:if="{{item.state=='待取票'}}" bindtap="confirm_order" data-order="{{item}}" style="margin-left:80%;width:20%;color:red">确认订单</view>
+  </view>
+</view>

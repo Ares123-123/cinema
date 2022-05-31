@@ -1,0 +1,31 @@
+<view>我的余额{{user.user_money}}</view>
+<view style="display:inline-block">
+  <view style="margin:1rem;width:2rem;height:1rem;border:1px solid gray;border-radius:0.5rem;padding:0.5rem;text-align:center" data-value="50" bindtap="recharge">
+    50
+  </view>
+  <view style="margin:1rem;width:2rem;height:1rem;border:1px solid gray;border-radius:0.5rem;padding:0.5rem;text-align:center" data-value="10" bindtap="recharge">
+    100
+  </view>
+</view>
+<view style="display:inline-block">
+  <view style="margin:1rem;width:2rem;height:1rem;border:1px solid gray;border-radius:0.5rem;padding:0.5rem;text-align:center" data-value="150" bindtap="recharge">
+    150
+  </view>
+  <view style="margin:1rem;width:2rem;height:1rem;border:1px solid gray;border-radius:0.5rem;padding:0.5rem;text-align:center" data-value="200" bindtap="recharge">
+    200
+  </view>
+</view>
+<view style="display:inline-block">
+  <view style="margin:1rem;width:2rem;height:1rem;border:1px solid gray;border-radius:0.5rem;padding:0.5rem;text-align:center" data-value="250" bindtap="recharge">
+    250
+  </view>
+  <view style="margin:1rem;width:2rem;height:1rem;border:1px solid gray;border-radius:0.5rem;padding:0.5rem;text-align:center" data-value="300" bindtap="recharge">
+    300
+  </view>
+</view>
+<view>
+  自定义充值数<input bindinput="getAuto_recharge" value="{{auto_recharge}}" style="background:rgb(252, 248, 246);border:1px solid gray"/>
+</view>
+<view bindtap="auto_recharge" style="margin-left:40%;margin-top:1rem;width:2rem;height:1rem;border-radius:0.5rem;padding:0.5rem;text-align:center;background:rgb(238, 214, 149)">充值</view>
+
+
